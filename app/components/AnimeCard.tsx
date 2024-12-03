@@ -1,3 +1,20 @@
+import {AnimeBasic} from "node-shikimori";
+import Image from "next/image";
+import {motion} from "motion/react"
+import {FaStar} from "react-icons/fa6";
+import {TbMovie} from "react-icons/tb";
+
+interface AnimeProp {
+    index: number;
+    anime: AnimeBasic;
+}
+
+export default function AnimeCard({anime, index}: AnimeProp) {
+
+    const variants = {
+        hidden: {opacity: 0},
+        visible: {opacity: 1},
+    };
 
 
     return (
@@ -8,11 +25,12 @@
             animate="visible"
             exit="hidden"
             transition={{
-                delay: index * 0.25,
+                delay: index * 0.05,
                 ease: "easeInOut",
                 duration: 0.5,
             }}
-            viewport={{amount: 0}} className="group hover:cursor-pointer flex flex-col max-w-[200px] h-fit">
+            viewport={{amount: 0}}
+            className="group hover:cursor-pointer flex flex-col max-w-[200px] h-fit">
 
             <Image src={`https://shikimori.one/${anime.image.original}`}
                    className='w-[200px] h-[250px] rounded-xl object-cover'
@@ -22,14 +40,14 @@
             />
 
             <div className="flex w-full mt-5 flex-row items-center">
-                <h1 className="group-hover:text-[#f2bf38] group-hover:underline lg:text-[17px] truncate">{anime.russian} </h1>
+                <h1 className="group-hover:text-[#f2bf38] text-[#111] group-hover:underline lg:text-[17px] truncate">{anime.russian} </h1>
                 <span
-                    className="bg-[#242424] ml-auto text-[#adadad] font-bold  px-3 py-1 rounded-lg">
+                    className="bg-[#242424] ml-auto text-[#fafafa] font-bold  px-3 py-1 rounded-lg">
                 {anime.kind}
             </span>
             </div>
 
-            <div className="flex flex-row items-center gap-5">
+            <div className="flex flex-row items-center gap-5 mt-3">
                 <p className="flex flex-row gap-1 items-center">
                     <TbMovie
                         className="text-red-500 text-[20px]"/>{anime.episodes_aired} </p>
@@ -37,9 +55,10 @@
                 >
                     <FaStar
                         className="drop-shadow-[0_0_5px_rgba(255,215,0,0.7)] text-[20px]"/>
-                    {anime.score == "0.0" ? "⠀" : anime.score}
+                    {anime.score}
 
                 </p>
+                <span className="ml-auto">{anime.aired_on && anime.aired_on.slice(0, 4)}</span>
             </div>
 
         </motion.div>

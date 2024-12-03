@@ -5,7 +5,7 @@ export default function MainBg() {
     return (
         <>
             <Image
-                className="object-cover z-10 pointer-events-none select-none w-full h-full fixed top-0 left-0"
+                className="object-cover z-10 pointer-events-none select-none w-full h-full absolute top-0 left-0"
                 unselectable="on"
                 placeholder="blur"
                 src={bgImage}
@@ -15,7 +15,7 @@ export default function MainBg() {
                 height={10}
                 priority={true}
             />
-            <div className="w-full h-full fixed top-0 left-0 z-20 bg-black/20"/>
+            <div className="w-full h-full absolute top-0 left-0 z-20 bg-black/20"/>
         </>
     );
 }
