@@ -15,7 +15,7 @@ export default function Home() {
                         Аниме Хаб
                     </h1>
                     <h3 className="lg:text-[2rem] font-semibold text-[#e8e8e8]">
-                        Вся информация о ваших любимых аниме тайтлах
+                        Вся информация о ваших любимых тайтлах
                     </h3>
                 </article>
             </main>

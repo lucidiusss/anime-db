@@ -23,7 +23,7 @@ export default function Explore() {
         isFetching,
     } = useQuery({
         queryKey: ['animeList'],
-        queryFn: () => axios.get(`${process.env.API_URL}animes?limit=25&page=1&order=popularity&status=ongoing`),
+        queryFn: () => axios.get(`${process.env.NEXT_PUBLIC_API_URL}animes?limit=25&page=1&order=popularity&status=ongoing`),
         refetchOnWindowFocus: false
     })
 
