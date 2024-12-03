@@ -3,13 +3,12 @@
 
 import {InputText} from "primereact/inputtext";
 import {useEffect, useState} from "react";
-import {useAnimeStore} from "@/store/store";
 import {searchAnime} from "@/actions/actions";
 
 export default function Input() {
 
     const [value, setValue] = useState<string>("");
-    const setAnimeList = useAnimeStore(state => state.setAnimeList);
+    /*const setAnimeList = useAnimeStore(state => state.setAnimeList);*/
 
 
     useEffect(() => {

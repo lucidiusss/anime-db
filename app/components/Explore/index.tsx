@@ -51,7 +51,7 @@ export default function Explore() {
         if (error) {
             console.log(error);
         }
-    }, [isFetching]);
+    }, [isFetching, data?.data]);
 
 
     return (
