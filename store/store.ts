@@ -1,12 +1,20 @@
-import {create} from 'zustand';
-import {AnimeBasic} from "node-shikimori";
+import { create } from "zustand";
+import { Anime, AnimeBasic } from "node-shikimori";
 
 interface AnimeState {
-    animeList: AnimeBasic[];
-    setAnimeList: (res: AnimeBasic[]) => void;
+  animeList: AnimeBasic[];
+  singleAnime: Anime;
+  animePage: AnimeBasic[];
+  setAnimeList: (res: AnimeBasic[]) => void;
+  setSingleAnime: (res: Anime) => void;
+  setAnimePage: (res: AnimeBasic[]) => void;
 }
 
 export const useAnimeStore = create<AnimeState>((set) => ({
-    animeList: [],
-    setAnimeList: (res: AnimeBasic[]) => set(() => ({animeList: res}))
-}))
+  animeList: <AnimeBasic[]>[],
+  singleAnime: <Anime>{},
+  animePage: <AnimeBasic[]>[],
+  setAnimeList: (res: AnimeBasic[]) => set(() => ({ animeList: res })),
+  setAnimePage: (res: AnimeBasic[]) => set(() => ({ animePage: res })),
+  setSingleAnime: (res: Anime) => set(() => ({ singleAnime: res })),
+}));
