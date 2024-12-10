@@ -18,4 +18,5 @@ export interface AnimeProps extends Anime {
     year: number;
     month: number;
   };
+  episodesAired: number;
 }

@@ -3,6 +3,9 @@ import Image from "next/image";
 import InfoItem from "@/app/components/AnimePage/InfoItem";
 
 export default function InfoSection(anime: AnimeProps) {
+  const releaseDate = `${anime.airedOn.year}-${anime.releasedOn.year} гг.`;
+  const airedOn = `${anime.airedOn.year} г.`;
+
   return (
     <section className="mt-4 flex w-full flex-row gap-10">
       <div>
@@ -19,10 +22,19 @@ export default function InfoSection(anime: AnimeProps) {
         <h1 className="uppercase font-medium text-[1rem] text-[#111] py-1 px-2 text-center bg-[#b0b0b0]">
           Информация
         </h1>
-        <div>
+        <div className="mt-5">
           <InfoItem
             name="Тип"
-            value={`${anime.kind === "tv" ? "TV Сериал" : anime.kind === "ova" ? "OVA" : anime.kind === "ona" ? "ONA" : anime.kind}`}
+            value={`${anime.kind === "tv" ? "TV Сериал" : anime.kind === "ova" ? "OVA" : anime.kind === "ona" ? "ONA" : anime.kind === "tv_special" ? "TV Спецвыпуск" : anime.kind}`}
+          />
+          <InfoItem name="Эпизоды" value={anime.episodes} />
+          <InfoItem
+            name="Длительность эпизода"
+            value={`${anime.duration} мин.`}
+          />
+          <InfoItem
+            name="Статус"
+            value={`${anime.status === "anons" ? "анонс" : anime.status === "released" ? `вышел в ${anime.releasedOn.year == null ? airedOn : releaseDate} ` : "онгоинг"}`}
           />
         </div>
       </div>

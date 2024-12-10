@@ -52,7 +52,7 @@ export default function AnimeCard({ anime, index }: AnimeProp) {
       <div className="flex flex-row items-center gap-5 mt-3">
         <p className="flex flex-row gap-1 items-center">
           <TbMovie className="text-red-500 text-[20px]" />
-          {anime.episodes_aired}{" "}
+          {anime.episodesAired}{" "}
         </p>
         <p className="flex flex-row gap-1 items-center text-[#ffd700]">
           <FaStar className="drop-shadow-[0_0_5px_rgba(255,215,0,0.7)] text-[20px]" />
