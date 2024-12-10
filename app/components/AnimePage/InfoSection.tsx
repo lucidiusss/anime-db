@@ -25,7 +25,7 @@ export default function InfoSection(anime: AnimeProps) {
         <div className="mt-5">
           <InfoItem
             name="Тип"
-            value={`${anime.kind === "tv" ? "TV Сериал" : anime.kind === "ova" ? "OVA" : anime.kind === "ona" ? "ONA" : anime.kind === "tv_special" ? "TV Спецвыпуск" : anime.kind}`}
+            value={`${anime.kind === "tv" ? "TV Сериал" : anime.kind === "ova" ? "OVA" : anime.kind === "ona" ? "ONA" : anime.kind === "special" ? "TV Спецвыпуск" : anime.kind}`}
           />
           <InfoItem name="Эпизоды" value={anime.episodes} />
           <InfoItem
@@ -34,6 +34,7 @@ export default function InfoSection(anime: AnimeProps) {
           />
           <InfoItem
             name="Статус"
+            classname={``}
             value={`${anime.status === "anons" ? "анонс" : anime.status === "released" ? `вышел в ${anime.releasedOn.year == null ? airedOn : releaseDate} ` : "онгоинг"}`}
           />
         </div>
