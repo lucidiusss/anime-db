@@ -7,9 +7,8 @@ import { useAnimeStore } from "@/store/store";
 
 export default function Animes() {
   const setAnimePage = useAnimeStore((state) => state.setAnimePage);
-  const animePage = useAnimeStore((state) => state.animePage);
-
-  const { data, isFetching, error, isLoading } = useQuery({
+  /*const animePage = useAnimeStore((state) => state.animePage)*/
+  const { data, error, isLoading } = useQuery({
     queryKey: ["animes"],
     queryFn: () =>
       axios.get(
