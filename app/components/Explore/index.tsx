@@ -6,8 +6,6 @@ import { AnimeBasic } from "node-shikimori";
 export default async function Explore() {
   const { data } = await getOngoings();
 
-  console.log(data);
-
   return (
     <section
       id="explore"
