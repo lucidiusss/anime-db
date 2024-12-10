@@ -213,7 +213,5 @@ export const getAnime = async (value: string) => {
       query,
     }),
   });
-  const json = await res.json();
-
-  return json;
+  return await res.json();
 };
