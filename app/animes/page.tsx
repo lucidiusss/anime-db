@@ -4,9 +4,6 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect } from "react";
 import { useAnimeStore } from "@/store/store";
-import { AnimeBasic } from "node-shikimori";
-import Link from "next/link";
-import AnimeCard from "@/app/components/AnimeCard";
 
 export default function Animes() {
   const setAnimePage = useAnimeStore((state) => state.setAnimePage);
@@ -38,12 +35,12 @@ export default function Animes() {
       </p>
       <section className="flex mt-10 flex-row gap-10">
         <div className="w-3/4 flex flex-wrap flex-1 gap-10">
-          {!isFetching &&
+          {/*{!isFetching &&
             animePage.map((anime: AnimeBasic, index: number) => (
               <Link className="h-fit" key={anime.id} href={anime.url}>
                 <AnimeCard index={index} anime={anime} />
               </Link>
-            ))}
+            ))}*/}
         </div>
         <Filter />
       </section>

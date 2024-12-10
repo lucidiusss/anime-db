@@ -1,34 +1,5 @@
 "use server";
 
-import axios from "axios";
-import { client } from "node-shikimori";
-
-const shikimori = client();
-
-export const getSingleAnime = async (value: string) => {
-  return await axios.get(`${process.env.NEXT_PUBLIC_API_URL}animes/${value}`);
-};
-
-/*export const getAnime = async (value: string) => {
-  return await shikimori.animes.byId({
-    id: +value,
-  });
-};*/
-
-export const getOngoings = async () => {
-  return await axios.get(
-    `${process.env.NEXT_PUBLIC_API_URL}animes?order=popularity&limit=28&status=ongoing`,
-  );
-};
-
-export const getAnimes = async () => {
-  return await shikimori.animes.list({
-    limit: 28,
-    status: "ongoing",
-    order: "popularity",
-  });
-};
-
 export const getOngoingAnimes = async () => {
   const query = `
   query {
@@ -122,8 +93,7 @@ export const getOngoingAnimes = async () => {
       query,
     }),
   });
-  const json = await res.json();
-  return json;
+  return await res.json();
 };
 
 export const getAnime = async (value: string) => {
