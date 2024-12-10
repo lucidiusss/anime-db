@@ -14,6 +14,16 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "dere.shikimori.one",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "moe.shikimori.one",
+        port: "",
+      },
+      {
+        protocol: "https",
         hostname: "shikimori.one",
         port: "",
       },

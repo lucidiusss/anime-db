@@ -1,10 +1,12 @@
 import { getOngoingAnimes } from "@/actions/actions";
 import Link from "next/link";
 import AnimeCard from "@/app/components/AnimeCard";
-import { AnimeBasic } from "node-shikimori";
+import { AnimeProps } from "@/types";
 
 export default async function Explore() {
   const { data } = await getOngoingAnimes();
+
+  console.log(data);
 
   return (
     <section
@@ -15,8 +17,12 @@ export default async function Explore() {
         Сейчас на экранах
       </h1>
       <div className="w-full h-full flex flex-wrap gap-8 mt-14">
-        {data.animes.map((anime: AnimeBasic, index: number) => (
-          <Link className="h-fit" key={anime.id} href={anime.url}>
+        {data.animes.map((anime: AnimeProps, index: number) => (
+          <Link
+            className="h-fit"
+            key={anime.id}
+            href={anime.url.slice(22, anime.url.length - 1)}
+          >
             <AnimeCard index={index} anime={anime} />
           </Link>
         ))}

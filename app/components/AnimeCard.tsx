@@ -1,12 +1,13 @@
 "use client";
-import { AnimeBasic } from "node-shikimori";
 import { FaStar } from "react-icons/fa6";
 import { TbMovie } from "react-icons/tb";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { AnimeProps } from "@/types";
 
 interface AnimeProp {
   index: number;
-  anime: AnimeBasic;
+  anime: AnimeProps;
 }
 
 export default function AnimeCard({ anime, index }: AnimeProp) {
@@ -14,6 +15,8 @@ export default function AnimeCard({ anime, index }: AnimeProp) {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
   };
+
+  console.log(anime);
 
   return (
     <motion.div
@@ -29,13 +32,13 @@ export default function AnimeCard({ anime, index }: AnimeProp) {
       viewport={{ amount: 0 }}
       className="group hover:cursor-pointer flex flex-col max-w-[200px] h-fit"
     >
-      {/*<Image
-        src={`https://shikimori.one/${anime.image.original}`}
+      <Image
+        src={anime.poster.mainUrl}
         className="w-[200px] h-[250px] rounded-xl object-cover"
         width={500}
         height={400}
         alt={anime.name}
-      />*/}
+      />
 
       <div className="flex w-full mt-5 flex-row items-center">
         <h1 className="group-hover:text-[#f2bf38] text-[#111] group-hover:underline lg:text-[17px] truncate">
