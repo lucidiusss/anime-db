@@ -21,7 +21,7 @@ export const getOngoings = async () => {
   );
 };
 
-/*export const getOngoingAnimes = async () => {
+export const getOngoingAnimes = async () => {
   const query = `
   query {
     animes(limit: 28, status: "ongoing", order: popularity) {
@@ -116,7 +116,7 @@ export const getOngoings = async () => {
   });
   const json = await res.json();
   return json;
-};*/
+};
 
 export const getAnime = async (value: string) => {
   const headers = { "Content-Type": "application/json" };
