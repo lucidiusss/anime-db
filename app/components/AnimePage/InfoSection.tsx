@@ -1,10 +1,11 @@
 import { AnimeProps } from "@/types";
 import Image from "next/image";
-import InfoItem from "@/app/components/AnimePage/InfoItem";
 
 export default function InfoSection(anime: AnimeProps) {
   const releaseDate = `${anime.airedOn.year}-${anime.releasedOn.year} гг.`;
   const airedOn = `${anime.airedOn.year} г.`;
+  const genres = anime.genres.filter((obj) => obj.kind === "genre");
+  const themes = anime.genres.filter((obj) => obj.kind === "theme");
 
   return (
     <section className="mt-4 flex w-full flex-row gap-10">
@@ -23,21 +24,75 @@ export default function InfoSection(anime: AnimeProps) {
           Информация
         </h1>
         <div className="mt-5">
-          <InfoItem
-            name="Тип"
-            value={`${anime.kind === "tv" ? "TV Сериал" : anime.kind === "ova" ? "OVA" : anime.kind === "ona" ? "ONA" : anime.kind === "special" ? "TV Спецвыпуск" : anime.kind}`}
-          />
-          <InfoItem name="Эпизоды" value={anime.episodes} />
-          <InfoItem
-            name="Длительность эпизода"
-            value={`${anime.duration} мин.`}
-          />
-          <InfoItem
-            name="Статус"
-            classname={``}
-            value={`${anime.status === "anons" ? "анонс" : anime.status === "released" ? `вышел в ${anime.releasedOn.year == null ? airedOn : releaseDate} ` : "онгоинг"}`}
-          />
+          <div className="flex flex-row items-center gap-1">
+            <h3 className="text-[#b0b0b0]">Тип:</h3>
+            <p className="text-[#111]">
+              {anime.kind === "tv"
+                ? "TV Сериал"
+                : anime.kind === "ova"
+                  ? "OVA"
+                  : anime.kind === "ona"
+                    ? "ONA"
+                    : anime.kind === "special"
+                      ? "TV Спецвыпуск"
+                      : anime.kind}
+            </p>
+          </div>
+          <div className="flex flex-row items-center gap-1">
+            <h3 className="text-[#b0b0b0]">Эпизоды:</h3>
+            <p className="text-[#111]">{anime.episodesAired}</p>
+          </div>
+          <div className="flex flex-row items-center gap-1">
+            <h3 className="text-[#b0b0b0]">Длительность эпизода:</h3>
+            <p className="text-[#111]">{anime.duration} мин.</p>
+          </div>
+          <div className="flex flex-row items-center gap-1">
+            <h3 className="text-[#b0b0b0]">Статус:</h3>
+            <p className="text-[#111]">
+              <span
+                className={`text-[#f4f4f4] px-1 ${anime.status === "anons" ? "bg-amber-700" : anime.status === "ongoing" ? "bg-blue-500" : "bg-green-500"}`}
+              >
+                {anime.status === "anons"
+                  ? "анонс"
+                  : anime.status === "ongoing"
+                    ? "выходит"
+                    : "вышел"}
+              </span>{" "}
+              {anime.status === "released"
+                ? `вышел в ${anime.releasedOn.year == null ? airedOn : releaseDate}`
+                : anime.status === "ongoing"
+                  ? `c ${anime.airedOn.year} г.`
+                  : ""}
+            </p>
+          </div>
+          <div>
+            <h3 className="text-[#b0b0b0]">
+              Жанры:{" "}
+              <span className="text-[#111]">
+                {genres.map((g) => g.russian).join(", ")}
+              </span>
+            </h3>
+          </div>
+          <div>
+            <h3 className="text-[#b0b0b0]">
+              Темы:{" "}
+              <span className="text-[#111]">
+                {themes.map((t) => t.russian).join(", ")}
+              </span>
+            </h3>
+          </div>
+          <div>
+            <h3 className="text-[#b0b0b0]">
+              Рейтинг:{" "}
+              <span className="text-[#111]">{anime.rating.toUpperCase()}</span>
+            </h3>
+          </div>
         </div>
+      </div>
+      <div className="w-1/4">
+        <h1 className="uppercase font-medium text-[1rem] text-[#111] py-1 px-2 text-center bg-[#b0b0b0]">
+          Рейтинг
+        </h1>
       </div>
     </section>
   );
