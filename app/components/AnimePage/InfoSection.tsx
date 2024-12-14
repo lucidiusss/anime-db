@@ -1,11 +1,18 @@
 import { AnimeProps } from "@/types";
 import Image from "next/image";
+import { Genre } from "node-shikimori";
 
 export default function InfoSection(anime: AnimeProps) {
   const releaseDate = `${anime.airedOn.year}-${anime.releasedOn.year} гг.`;
   const airedOn = `${anime.airedOn.year} г.`;
-  const genres = anime.genres.filter((obj) => obj.kind === "genre");
-  const themes = anime.genres.filter((obj) => obj.kind === "theme");
+  const genres: Genre<"Anime">[] = anime.genres.filter(
+    (obj: Genre<"Anime">): boolean => obj.kind === "genre",
+  );
+  const themes: Genre<"Anime">[] = anime.genres.filter(
+    (obj: Genre<"Anime">): boolean => obj.kind === "theme",
+  );
+
+  console.log(themes);
 
   return (
     <section className="mt-4 flex w-full flex-row gap-10">
