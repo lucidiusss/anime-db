@@ -4,10 +4,7 @@ import Image from "next/image";
 export default function InfoSection(anime: AnimeProps) {
   const releaseDate = `${anime.airedOn.year}-${anime.releasedOn.year} гг.`;
   const airedOn = `${anime.airedOn.year} г.`;
-  /* tslint:disable */
-  const genres = anime.genres.filter((el) => el.kind === "genre");
-  const themes = anime.genres.filter((el) => el.kind === "theme");
-  /* tslint:enable */
+ => el.kind === "theme");
   return (
     <section className="mt-4 flex w-full flex-row gap-10">
       <div>
@@ -70,7 +67,7 @@ export default function InfoSection(anime: AnimeProps) {
             <h3 className="text-[#b0b0b0]">
               Жанры:{" "}
               <span className="text-[#111]">
-                {genres.map((g) => g.russian).join(", ")}
+                {/*{anime.genres.filter((g) => g.kind === "genre")}*/}
               </span>
             </h3>
           </div>
@@ -78,7 +75,7 @@ export default function InfoSection(anime: AnimeProps) {
             <h3 className="text-[#b0b0b0]">
               Темы:{" "}
               <span className="text-[#111]">
-                {themes.map((t) => t.russian).join(", ")}
+                {/*{themes.map((t) => t.russian).join(", ")}*/}
               </span>
             </h3>
           </div>
