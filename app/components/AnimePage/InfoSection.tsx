@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function InfoSection(anime: AnimeProps) {
   const releaseDate = `${anime.airedOn.year}-${anime.releasedOn.year} гг.`;
   const airedOn = `${anime.airedOn.year} г.`;
- => el.kind === "theme");
+
   return (
     <section className="mt-4 flex w-full flex-row gap-10">
       <div>
