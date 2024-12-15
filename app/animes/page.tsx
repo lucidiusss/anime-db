@@ -13,8 +13,9 @@ export default async function Animes() {
       <p className="text-[#a1a1a1]">
         На данной странице отображены лучшие аниме, отсортированные по рейтингу
       </p>
-      <section className="flex mt-10 flex-row gap-10">
-        <div className="w-3/4 flex flex-wrap flex-1 gap-10">
+      <section className="flex mt-10 items-center flex-col gap-10">
+        <Filter />
+        <div className="w-full flex bg-white shadow-xl justify-center  rounded-xl flex-wrap p-4 flex-1 gap-10">
           {data.animes.map((anime: AnimeProps, index: number) => (
             <Link
               className="h-fit"
@@ -25,7 +26,6 @@ export default async function Animes() {
             </Link>
           ))}
         </div>
-        <Filter />
       </section>
     </main>
   );

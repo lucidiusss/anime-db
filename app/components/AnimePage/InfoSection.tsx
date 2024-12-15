@@ -1,18 +1,11 @@
 import { AnimeProps } from "@/types";
 import Image from "next/image";
-import { Genre } from "node-shikimori";
 
 export default function InfoSection(anime: AnimeProps) {
   const releaseDate = `${anime.airedOn.year}-${anime.releasedOn.year} гг.`;
   const airedOn = `${anime.airedOn.year} г.`;
-  const genres: Genre<"Anime">[] = anime.genres.filter(
-    (obj: Genre<"Anime">): boolean => obj.kind === "genre",
-  );
-  const themes: Genre<"Anime">[] = anime.genres.filter(
-    (obj: Genre<"Anime">): boolean => obj.kind === "theme",
-  );
-
-  console.log(themes);
+  const genres = anime.genres.filter((el) => el.kind === "genre");
+  const themes = anime.genres.filter((el) => el.kind === "theme");
 
   return (
     <section className="mt-4 flex w-full flex-row gap-10">
@@ -57,13 +50,13 @@ export default function InfoSection(anime: AnimeProps) {
             <h3 className="text-[#b0b0b0]">Статус:</h3>
             <p className="text-[#111]">
               <span
-                className={`text-[#f4f4f4] px-1 ${anime.status === "anons" ? "bg-amber-700" : anime.status === "ongoing" ? "bg-blue-500" : "bg-green-500"}`}
+                className={`text-[#f4f4f4] px-1 ${anime.status === "anons" ? "bg-[#ca4a2c]" : anime.status === "ongoing" ? "bg-[#1d78b7]" : "bg-[#449444]"}`}
               >
                 {anime.status === "anons"
                   ? "анонс"
                   : anime.status === "ongoing"
-                    ? "выходит"
-                    : "вышел"}
+                    ? "онгоинг"
+                    : "вышло"}
               </span>{" "}
               {anime.status === "released"
                 ? `вышел в ${anime.releasedOn.year == null ? airedOn : releaseDate}`

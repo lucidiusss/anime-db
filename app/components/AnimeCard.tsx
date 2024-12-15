@@ -16,8 +16,6 @@ export default function AnimeCard({ anime, index }: AnimeProp) {
     visible: { opacity: 1 },
   };
 
-  console.log(anime);
-
   return (
     <motion.div
       variants={variants}
