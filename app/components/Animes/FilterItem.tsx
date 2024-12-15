@@ -1,4 +1,5 @@
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Link from "next/link";
 
 interface FilterProps {
   title: string;
@@ -6,7 +7,6 @@ interface FilterProps {
 }
 
 export default function FilterItem(item: FilterProps) {
-  console.log(item);
   return (
     <div>
       <h1 className="uppercase font-bold">{item.title}</h1>
@@ -18,7 +18,7 @@ export default function FilterItem(item: FilterProps) {
               value={option.name}
               className="hover:bg-white"
             >
-              {option.name}
+              <Link href={`/animes?${option.value}`}>{option.name}</Link>
             </TabsTrigger>
           ))}
         </TabsList>

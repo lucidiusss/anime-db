@@ -86,7 +86,7 @@ const FILTER_ITEMS = [
 
 export default function Filter() {
   return (
-    <div className="w-full flex flex-col gap-5 relative bg-white shadow-xl rounded-xl p-4">
+    <div className="w-full flex flex-col gap-5 relative bg-white shadow-lg rounded-xl p-4">
       {FILTER_ITEMS.map((item) => (
         <FilterItem key={item.title} {...item} />
       ))}

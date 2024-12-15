@@ -11,7 +11,7 @@ export default async function Explore() {
   return (
     <section
       id="explore"
-      className=" shadow-xl flex flex-col min-h-screen p-10 mx-[7rem] mb-[3rem] rounded-xl relative z-20 bg-white text-[#afafaf]"
+      className="shadow-xl flex flex-col min-h-screen p-10 mx-[7rem] mb-[3rem] rounded-xl relative z-20 bg-white text-[#afafaf]"
     >
       <h1 className="text-[2rem] text-[#111] font-bold mt-5">
         Сейчас на экранах

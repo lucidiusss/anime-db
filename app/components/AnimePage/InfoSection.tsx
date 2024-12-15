@@ -4,9 +4,10 @@ import Image from "next/image";
 export default function InfoSection(anime: AnimeProps) {
   const releaseDate = `${anime.airedOn.year}-${anime.releasedOn.year} гг.`;
   const airedOn = `${anime.airedOn.year} г.`;
+  /* tslint:disable */
   const genres = anime.genres.filter((el) => el.kind === "genre");
   const themes = anime.genres.filter((el) => el.kind === "theme");
-
+  /* tslint:enable */
   return (
     <section className="mt-4 flex w-full flex-row gap-10">
       <div>
