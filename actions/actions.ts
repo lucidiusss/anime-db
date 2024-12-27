@@ -1,5 +1,9 @@
 "use server";
 
+import { client } from "node-shikimori";
+
+const shikimori = client();
+
 export const getOngoingAnimes = async () => {
   const query = `
   query {
@@ -290,10 +294,11 @@ export const getAnime = async (value: string) => {
   return await res.json();
 };
 
-export const FilterAnimes = async (queries: string) => {
+export const searchAnimes = async (name: string) => {
   const query = `
+
   query {
-    animes(${queries}) {
+    animes(search: "${name}", limit: 100) {
     id
     malId
     name

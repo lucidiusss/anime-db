@@ -13,7 +13,7 @@ export default async function Page() {
       </p>
       <Filter />
       <section className="shadow-xl mt-10 p-4 rounded-lg bg-white">
-        <Animes animes={data.animes} />
+        <Animes passedAnimes={data.animes} />
       </section>
     </main>
   );
