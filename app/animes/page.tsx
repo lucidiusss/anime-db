@@ -21,7 +21,6 @@ export default function Animes() {
   useEffect(() => {
     if (!isPending && data) {
       updateAnimes(data.data.animes);
-      updateAnimes;
     } else if (isError) {
       console.log(error);
     }
