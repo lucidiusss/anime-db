@@ -1,20 +1,9 @@
-"use client";
-
 import { getAnimes } from "@/actions/actions";
-import AnimeCard from "@/app/components/AnimeCard";
 import Filter from "@/app/components/Animes/Filter";
-import { useAnimeStore } from "@/store/store";
-import { AnimeProps } from "@/types";
-import Link from "next/link";
-import { useEffect } from "react";
+import Animes from "../components/Animes/Animes";
 
-export default function Animes() {
-  const animes = useAnimeStore((state) => state.animes);
-  const updateAnimes = useAnimeStore((state) => state.updateAnimes);
-
-  useEffect(() => {
-    getAnimes().then((res) => updateAnimes(res.data.animes));
-  }, []);
+export default async function Page() {
+  const { data } = await getAnimes();
 
   return (
     <main className="min-h-screen p-[0.8rem] mx-[7rem]">
@@ -24,18 +13,7 @@ export default function Animes() {
       </p>
       <Filter />
       <section className="shadow-xl mt-10 p-4 rounded-lg bg-white">
-        <div className="bg-white h-full flex-1 flex flex-wrap gap-8 mt-14">
-          {animes &&
-            animes.map((anime: AnimeProps, index: number) => (
-              <Link
-                className="h-fit"
-                key={anime.id}
-                href={anime.url.slice(22, anime.url.length - 1)}
-              >
-                <AnimeCard index={index} anime={anime} />
-              </Link>
-            ))}
-        </div>
+        <Animes animes={data.animes} />
       </section>
     </main>
   );
