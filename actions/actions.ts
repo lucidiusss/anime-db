@@ -12,7 +12,9 @@ export const getOngoingAnimes = async () => {
     poster { id originalUrl mainUrl }
     id
     url
-    studios { id name imageUrl }
+    name
+    russian
+    studios { name }
   }
   }
   `;
@@ -36,9 +38,9 @@ export const getAnimes = async () => {
     poster { id originalUrl mainUrl }
     id
     url
-    studios { id name imageUrl }
     name
     russian
+    studios { name }
   }
   }
   `;
@@ -163,7 +165,7 @@ export const searchAnimes = async (name: string) => {
     url
     name
     russian
-    studios { id name imageUrl }
+    studios { name }
   }
   }
   `;
