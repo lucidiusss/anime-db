@@ -5,7 +5,6 @@ import AnimeCard from "@/app/components/AnimeCard";
 import Filter from "@/app/components/Animes/Filter";
 import { useAnimeStore } from "@/store/store";
 import { AnimeProps } from "@/types";
-import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useEffect } from "react";
 
@@ -13,18 +12,9 @@ export default function Animes() {
   const animes = useAnimeStore((state) => state.animes);
   const updateAnimes = useAnimeStore((state) => state.updateAnimes);
 
-  const { isPending, isError, data, error } = useQuery({
-    queryKey: ["animes"],
-    queryFn: getAnimes,
-  });
-
   useEffect(() => {
-    if (!isPending && data) {
-      updateAnimes(data.data.animes);
-    } else if (isError) {
-      console.log(error);
-    }
-  }, [isPending]);
+    getAnimes().then((res) => updateAnimes(res.data.animes));
+  }, []);
 
   return (
     <main className="min-h-screen p-[0.8rem] mx-[7rem]">
