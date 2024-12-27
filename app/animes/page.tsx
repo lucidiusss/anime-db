@@ -1,14 +1,13 @@
 "use client";
 
 import { getAnimes } from "@/actions/actions";
-import { AnimeProps } from "@/types";
-import Link from "next/link";
 import AnimeCard from "@/app/components/AnimeCard";
 import Filter from "@/app/components/Animes/Filter";
-import { useEffect, useState } from "react";
-import { Anime } from "node-shikimori";
-import { useQuery } from "@tanstack/react-query";
 import { useAnimeStore } from "@/store/store";
+import { AnimeProps } from "@/types";
+import { useQuery } from "@tanstack/react-query";
+import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Animes() {
   const animes = useAnimeStore((state) => state.animes);
@@ -22,6 +21,7 @@ export default function Animes() {
   useEffect(() => {
     if (!isPending && data) {
       updateAnimes(data.data.animes);
+      updateAnimes;
     } else if (isError) {
       console.log(error);
     }
@@ -35,7 +35,7 @@ export default function Animes() {
       </p>
       <Filter />
       <section className="shadow-xl mt-10 p-4 rounded-lg bg-white">
-        <div className="bg-white w-full h-full flex flex-wrap gap-8 mt-14">
+        <div className="bg-white h-full flex-1 flex flex-wrap gap-8 mt-14">
           {animes &&
             animes.map((anime: AnimeProps, index: number) => (
               <Link
