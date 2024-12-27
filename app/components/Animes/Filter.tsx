@@ -1,6 +1,7 @@
 "use client";
 
 import FilterItem from "@/app/components/Animes/FilterItem";
+import SearchInput from "./SearchInput";
 
 const FILTER_ITEMS = [
   {
@@ -90,6 +91,7 @@ export default function Filter() {
       {FILTER_ITEMS.map((item) => (
         <FilterItem key={item.title} {...item} />
       ))}
+      <SearchInput />
     </div>
   );
 }

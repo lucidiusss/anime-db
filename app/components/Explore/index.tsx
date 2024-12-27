@@ -20,7 +20,7 @@ export default async function Explore() {
         {data.animes.map((anime: AnimeProps, index: number) => (
           <Link
             className="h-fit"
-            key={anime.id}
+            key={anime.name}
             href={anime.url.slice(22, anime.url.length - 1)}
           >
             <AnimeCard index={index} anime={anime} />
