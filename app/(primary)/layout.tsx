@@ -1,34 +1,32 @@
-import type {Metadata} from "next";
-import {Inter} from "next/font/google";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "../globals.css";
-import Nav from "../components/Nav";
-import {PrimeReactProvider} from "primereact/api";
-import Wrapper from "@/app/components/Wrapper";
+import Nav from "../../components/Nav";
+import { PrimeReactProvider } from "primereact/api";
+import Wrapper from "@/components/Wrapper";
 
-const inter = Inter({subsets: ["latin"]});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "Anime DB",
-    description: "Anime DB",
+  title: "Anime DB",
+  description: "Anime DB",
 };
 
 export default function RootLayout({
-                                       children,
-                                   }: Readonly<{
-    children: React.ReactNode;
+  children,
+}: Readonly<{
+  children: React.ReactNode;
 }>) {
-
-
-    return (
-        <html lang="en">
-        <body className={`${inter.className} antialiased`}>
+  return (
+    <html lang="en">
+      <body className={`${inter.className} antialiased`}>
         <PrimeReactProvider>
-            <Wrapper>
-                <Nav/>
-                {children}
-            </Wrapper>
+          <Wrapper>
+            <Nav />
+            {children}
+          </Wrapper>
         </PrimeReactProvider>
-        </body>
-        </html>
-    );
+      </body>
+    </html>
+  );
 }

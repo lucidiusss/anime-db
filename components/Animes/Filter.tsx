@@ -1,6 +1,6 @@
 "use client";
 
-import FilterItem from "@/app/components/Animes/FilterItem";
+import FilterItem from "@/components/Animes/FilterItem";
 import SearchInput from "./SearchInput";
 
 const FILTER_ITEMS = [

@@ -1,6 +1,6 @@
 import { getOngoingAnimes } from "@/actions/actions";
 import Link from "next/link";
-import AnimeCard from "@/app/components/AnimeCard";
+import AnimeCard from "@/components/AnimeCard";
 import { AnimeProps } from "@/types";
 
 export default async function Explore() {

@@ -1,6 +1,6 @@
 import { getAnime } from "@/actions/actions";
 import { AnimeProps } from "@/types";
-import InfoSection from "@/app/components/AnimePage/InfoSection";
+import InfoSection from "@/components/AnimePage/InfoSection";
 
 export default async function Page({
   params,
@@ -12,8 +12,8 @@ export default async function Page({
   const id: string = slug.startsWith("z")
     ? slug.slice(1, slug.indexOf("-"))
     : slug.startsWith("y")
-      ? slug.slice(1, slug.indexOf("-"))
-      : slug.slice(0, slug.indexOf("-"));
+    ? slug.slice(1, slug.indexOf("-"))
+    : slug.slice(0, slug.indexOf("-"));
 
   const { data } = await getAnime(id);
 

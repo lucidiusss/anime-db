@@ -1,6 +1,6 @@
 import { getAnimes } from "@/actions/actions";
-import Filter from "@/app/components/Animes/Filter";
-import Animes from "../components/Animes/Animes";
+import Filter from "@/components/Animes/Filter";
+import Animes from "../../components/Animes/Animes";
 
 export default async function Page() {
   const { data } = await getAnimes();
